@@ -16,21 +16,26 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->string('email')->unique();
+            $table->integer('id_category')->unsigned();
             $table->timestamps();
         });
+
+        $user = new App\User();
+        $user->password = 'admin';
+        $user->email = 'danielmirandafer@gmail.com';
+        $user->name = 'admin';
+        $user->id_category = empty(null);
+        $user->save();
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('users');
+        // Schema::dropIfExists('users');
+        Schema::table('users', function($table) {
+            $table->foreign('id_category')->references('id')->on('category');
+
+        });
     }
 }
