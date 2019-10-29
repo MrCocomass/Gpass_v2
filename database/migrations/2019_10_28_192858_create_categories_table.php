@@ -21,10 +21,6 @@ class CreateCategoriesTable extends Migration
         $category->id_password = empty(null);
         $category->save();
 
-        $category = new App\Category();
-        $category->name = 'Youtube';
-        $category->id_password = empty(null);
-        $category->save();
     }
 
     public function down()

@@ -24,7 +24,16 @@ class PasswordController extends Controller
      */
     public function create()
     {
-        //
+
+        $title = $_POST['title'];
+        $password = $_POST['password'];
+        $passwords = Password::where('title', $title)->get();
+
+        $passwords = new Password();
+            $passwords->title = $title;
+            $passwords->password = $password;  
+            $passwords->save();
+
     }
 
     /**
