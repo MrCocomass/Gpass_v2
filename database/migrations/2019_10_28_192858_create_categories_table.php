@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
@@ -24,13 +20,13 @@ class CreateCategoriesTable extends Migration
         $category->name = 'GitHub';
         $category->id_password = empty(null);
         $category->save();
+
+        $category = new App\Category();
+        $category->name = 'Youtube';
+        $category->id_password = empty(null);
+        $category->save();
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         // Schema::dropIfExists('categories');
