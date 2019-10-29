@@ -16,7 +16,7 @@ class CreatePasswordsTable extends Migration
         });
 
         $password = new App\Password();
-        $password->title = 'Github_pass';
+        $password->title = 'Blizzard';
         $password->password = 'GqZhNnN#7y3c';
         $password->save();
     }
