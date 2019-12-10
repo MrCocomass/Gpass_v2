@@ -17,11 +17,6 @@ class PasswordController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -55,15 +50,11 @@ class PasswordController extends Controller
      */
     public function show(Password $password)
     {
-        //
+        $password = Password::all();
+        return $this->createResponse(200, 'Password', array('password' => $password));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Password  $password
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Password $password)
     {
         //
@@ -81,14 +72,14 @@ class PasswordController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Password  $password
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Password $password)
+    
+    
+    public function destroy($id)
     {
-        //
+        $password = Password::find($id);
+        $password->delete();
+
+        return $this->success (200, 'Password deleted');
     }
+    
 }
