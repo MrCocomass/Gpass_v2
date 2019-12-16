@@ -18,12 +18,12 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        $user = new App\User();
-        $user->password = 'admin';
-        $user->email = 'danielmirandafer@gmail.com';
-        $user->name = 'admin';
-        $user->id_category = empty(null);
-        $user->save();
+        // $user = new App\User();
+        // $user->password = 'admin';
+        // $user->email = 'danielmirandafer@gmail.com';
+        // $user->name = 'admin';
+        // $user->id_category = empty(null);
+        // $user->save();
     }
 
     public function down()

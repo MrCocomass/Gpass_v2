@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
-use \Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
 use App\User;
 
 
@@ -54,9 +54,9 @@ class UserController extends Controller
                         'email' => $email,
                     );
             
-                // $token = JWT::encode($array, $key);
-                // return $this->success("user logged", $token);
-                return $this->success("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEzMjQ1NDM1NjczIiwiZW1haWwiOiJqb3NlQG1vbGEuY29tIn0.RUsGCFm5uoL2YyNTdUgXyrqvLj1vKDPKwKceW8-4Xa0");
+                 $token = JWT::encode($array, $key);
+                 return $this->success("user logged", $token);
+                //return $this->success("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEzMjQ1NDM1NjczIiwiZW1haWwiOiJqb3NlQG1vbGEuY29tIn0.RUsGCFm5uoL2YyNTdUgXyrqvLj1vKDPKwKceW8-4Xa0");
 
                     
             }else{
