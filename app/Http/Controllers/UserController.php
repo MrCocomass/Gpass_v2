@@ -11,11 +11,6 @@ use App\User;
 class UserController extends Controller
 {
 
-    public function index()
-    {
-        //
-    }
-
     public function login()
     {
         $email = $_POST['email'];
@@ -56,7 +51,7 @@ class UserController extends Controller
             
                  $token = JWT::encode($array, $key);
                  return $this->success("user logged", $token);
-                //return $this->success("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEzMjQ1NDM1NjczIiwiZW1haWwiOiJqb3NlQG1vbGEuY29tIn0.RUsGCFm5uoL2YyNTdUgXyrqvLj1vKDPKwKceW8-4Xa0");
+                
 
                     
             }else{
@@ -102,7 +97,6 @@ class UserController extends Controller
                 $users->save();
             }
             
-
             catch(Exception $e)
             {
                 return $this->error(420, $e->getMessage());
